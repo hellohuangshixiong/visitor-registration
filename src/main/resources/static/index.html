@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>访客登记</title>
+  <script type="text/javascript" src="/js/jquery/jquery-2.1.0.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>访客登记</h2>
+<!--  <form action="/register" method="post">-->
+  <form id="visitorForm" action="/register" method="post">
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name" required>
+<!--    <label for="email">电子邮件地址：</label>-->
+<!--    <input type="email" id="email" name="email" required>-->
+    <label for="name">登记时间:</label>
+    <input type="datetime-local" id="time" name="time" required>
+
+    <label for="name">事项:</label>
+    <input type="text" id="item" name="item" required>
+    <label for="name">来访单位:</label>
+    <input type="text" id="company" name="company" required>
+
+    <input type="submit" value="提交">
+  </form>
+  <div id="thankYouMessage" style="display: none;">
+    <p>感谢您的登记，我们会尽快与您联系！</p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('visitorForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var name = document.getElementById('name').value;
+    var time = document.getElementById('time').value;
+    var item = document.getElementById('item').value;
+    var company = document.getElementById('company').value;
+    // 这里可以将姓名和电子邮件地址提交到后端处理，或者做其他操作
+    // 这里只是简单地显示感谢消息
+    document.getElementById('visitorForm').style.display = 'none';
+    document.getElementById('thankYouMessage').style.display = 'block';
+    $.post("/register", {name: name, time: time, item: item, company: company}, function (data) {
+      console.log(data);
+    });
+  });
+</script>
+<script>
+  window.onload=(function () {
+    console.log("why you so diao")
+    $.get("/IPStorage", "", function (text) {
+      //显示在info中
+      // $("#info").text(text);
+
+    });
+    //navigator.geolocation.getCurrentPosition()
+    var geolocation = navigator.geolocation;
+    console.log(geolocation)
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.welcome.mapper.GuestMapper">
+
+
+    <insert id="insert">
+        insert into guest(id,time,name,item,company)
+        values(null,#{time},#{name},#{item},#{company})
+    </insert>
+    <insert id="insertIPStorage">
+        insert into ipstorage(id,ip,time,address)
+        values (null,#{ip},#{time},#{address})
+    </insert>
+</mapper>

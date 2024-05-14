@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+</head>
+<script type="text/javascript" src="/js/jquery/jquery-2.1.0.js"></script>
+<body>
+
+
+<form action="/register" method="post">
+  <label for="name">登记时间:</label>
+  <input type="datetime-local" id="time" name="time" required>
+
+  <br>
+  <!-- 文本输入框 -->
+  <label for="name">姓名:</label>
+  <input type="text" id="name" name="name" required>
+
+  <br>
+
+  <label for="name">事项:</label>
+  <input type="text" id="item" name="item" required>
+
+  <br>
+
+  <label for="name">来访单位:</label>
+  <input type="text" id="company" name="company" required>
+
+  <br>
+
+
+  <!-- 提交按钮 -->
+  <input type="submit" value="提交">
+</form>
+
+</body>
+<script>
+
+</script>
+<script>
+  window.onload=(function () {
+    console.log("why you so diao")
+    $.get("/IPStorage", "", function (text) {
+      //显示在info中
+     // $("#info").text(text);
+
+    });
+    //navigator.geolocation.getCurrentPosition()
+    var geolocation = navigator.geolocation;
+    console.log(geolocation)
+  })
+</script>
+</html>

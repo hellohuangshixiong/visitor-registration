@@ -1,0 +1,19 @@
+
+spring:
+  application:
+           name: welcome
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/welcome?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: root
+
+  profiles:
+    active:
+      dev
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  #???????resultType?????
+  type-aliases-package: com.example.welcome.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
