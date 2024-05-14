@@ -1,6 +1,6 @@
-春天：
-  数据来源：
-网址 : jdbc : mysql : //localhost : 3306/welcome?serverTimezone=亚洲/上海&useUnicode=true&characterEncoding=utf-8 : mysql : //localhost : 3306/welcome?serverTimezone=亚洲/上海&useUnicode=true&characterEncoding=utf-8
-    用户名:     用户名：根
-    密码：     密码：a13232613
-    驱动程序类名称：     驱动程序类名称：com.mysql.cj.jdbc.Driver
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/welcome?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
